@@ -10,12 +10,24 @@ const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = graphQL;
 //   { id: "3", firstName: "Stanley", age: 28 }
 // ];
 
+const CompanyType = new GraphQLObjectType({
+  name: "Company",
+  fields: {
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString }
+  }
+});
+
 const UserType = new GraphQLObjectType({
   name: "User",
   fields: {
     id: { type: GraphQLString },
     firstName: { type: GraphQLString },
-    age: { type: GraphQLInt }
+    age: { type: GraphQLInt },
+    company: {
+      type: CompanyType
+    }
   }
 });
 
