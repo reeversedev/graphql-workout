@@ -104,7 +104,9 @@ const mutation = new GraphQLObjectType({
         age: { type: GraphQLInt }
       },
       resolve(parentValue, args) {
-        console.log(parentValue, args);
+        return axios
+          .patch(`http://localhost:3000/users/${args.id}`, args)
+          .then(resp => resp.data);
       }
     }
   }
