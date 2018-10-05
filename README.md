@@ -1,2 +1,2 @@
-# relationships
-GraphQL based application for relations
+# graphql-workout
+GraphQL training repository
