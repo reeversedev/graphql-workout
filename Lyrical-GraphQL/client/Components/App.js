@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
 export default ({ children }) => {
-  console.log(children);
-  //   return <div className="container">{children}</div>;
+  console.log("children", children);
+  return <div className="container">{children}</div>;
 };
