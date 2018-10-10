@@ -17,12 +17,9 @@ class SongList extends Component {
   }
   render() {
     return (
-      <React.Fragment>
-        {" "}
-        <ul className="collection">
-          {this.props.data.songs ? this.renderSongs() : "Loading..."}
-        </ul>
-      </React.Fragment>
+      <ul className="collection">
+        {this.props.data.songs ? this.renderSongs() : "Loading..."}
+      </ul>
     );
   }
 }

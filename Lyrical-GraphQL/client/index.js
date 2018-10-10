@@ -1,33 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  HashRouter
-} from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
 
 import App from "./Components/App";
-import { SongList } from "./Components/SongList";
+import SongList from "./Components/SongList";
+import SongCreate from "./Components/SongCreate";
 
 const client = new ApolloClient({});
 
 const Root = () => {
   return (
-    <HashRouter>
-      <ApolloProvider client={client}>
-        {/* <Router> */}
-        <Switch>
-          <Route path="/" component={App} />
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="container">
           <Route path="/" component={SongList} />
-        </Switch>
-        {/* </Router> */}
-      </ApolloProvider>
-    </HashRouter>
+          <Route exact path="/song/new" component={SongCreate} />
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 };
 
